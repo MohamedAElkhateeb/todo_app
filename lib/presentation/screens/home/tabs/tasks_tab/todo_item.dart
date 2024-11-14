@@ -1,10 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_app/config/theme/app_styles.dart';
 import 'package:todo_app/core/utils/colors_manger.dart';
+import 'package:todo_app/datebase_manager/model/todo_dm.dart';
 
 class TodoItem extends StatelessWidget {
-  const TodoItem({super.key});
+  TodoItem({super.key, required this.todo,required this.onDeletedTask});
+
+  TodoDm todo;
+  Function onDeletedTask;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +22,12 @@ class TodoItem extends StatelessWidget {
       child: Slidable(
         startActionPane: ActionPane(motion: BehindMotion(), children: [
           SlidableAction(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(12)
-            ,bottomLeft: Radius.circular(12)
-            ),
-            onPressed: (context) {},
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+            onPressed: (context) {
+              deleteTodoFromFireStore(todo);
+              onDeletedTask();
+            },
             backgroundColor: ColorsManger.red,
             foregroundColor: Colors.white,
             icon: Icons.delete,
@@ -48,14 +55,14 @@ class TodoItem extends StatelessWidget {
             ),
             Column(mainAxisSize: MainAxisSize.min, children: [
               Text(
-                "Task Title",
+                todo.title,
                 style: LightAppStyle.todoTitle,
               ),
               SizedBox(
                 height: 7,
               ),
               Text(
-                "Task Description",
+                todo.description,
                 style: LightAppStyle.todoDesc,
               ),
             ]),
@@ -75,5 +82,15 @@ class TodoItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void deleteTodoFromFireStore(TodoDm todo) async{
+    CollectionReference todoCollection =
+        FirebaseFirestore.instance.collection(TodoDm.collectionName);
+    DocumentReference todoDoc = todoCollection.doc(todo.id);
+    await todoDoc.delete();
+    onDeletedTask();
+
+
   }
 }

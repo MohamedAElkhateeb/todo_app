@@ -12,11 +12,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  GlobalKey<TasksTabState> tasksTabKey = GlobalKey();
   int currentIndex = 0;
-  List<Widget> tabs = [
-    TasksTab(),
-    SettingTab(),
-  ];
+  List<Widget> tabs = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabs = [
+      TasksTab(key: tasksTabKey,),
+      SettingTab(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildBottomNavBar() => ClipRRect(
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(15),
-      topRight: Radius.circular(15),
-    ),
-    child: BottomAppBar(
-      notchMargin: 10,
-      shape: CircularNotchedRectangle(),
-      child: BottomNavigationBar(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+        child: BottomAppBar(
+          notchMargin: 10,
+          shape: CircularNotchedRectangle(),
+          child: BottomNavigationBar(
               currentIndex: currentIndex,
               onTap: (tappedIndex) {
                 currentIndex = tappedIndex;
@@ -50,14 +58,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.settings_outlined), label: 'Settings')
               ]),
-    ),
-  );
+        ),
+      );
+
   Widget buildfab() => FloatingActionButton(
-
-    child: Icon(Icons.add),
-
-    onPressed: () {
-      AddTaskBottomSheet.show(context);
-    },
-  );
+        child: Icon(Icons.add),
+        onPressed: () async{
+          await AddTaskBottomSheet.show(context);
+          tasksTabKey.currentState?.getTaskFromFireStore();
+        },
+      );
 }
