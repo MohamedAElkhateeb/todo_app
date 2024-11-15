@@ -46,9 +46,51 @@ class AppTheme {
       unselectedItemColor: ColorsManger.gray,
       showSelectedLabels: true,
       showUnselectedLabels: false,
-      selectedIconTheme: IconThemeData(size: 33),
-      unselectedIconTheme: IconThemeData(size: 33),
+      selectedIconTheme: IconThemeData(size: 24),
+      unselectedIconTheme: IconThemeData(size: 24),
     ),
   );
-  static ThemeData dark = ThemeData();
+  static ThemeData dark = ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: ColorsManger.blue,
+        primary: ColorsManger.darkScaffoldBg,
+        onPrimary: ColorsManger.darkGrey,
+      ),
+      scaffoldBackgroundColor: ColorsManger.darkScaffoldBg,
+      appBarTheme: AppBarTheme(
+        elevation: 0,
+        color: ColorsManger.blue,
+        titleTextStyle: DarkAppStyle.appBar,
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        unselectedItemColor: ColorsManger.white,
+        selectedItemColor: ColorsManger.blue,
+        selectedIconTheme: IconThemeData(size: 22),
+        unselectedIconTheme: IconThemeData(size: 22),
+      ),
+      bottomAppBarTheme: const BottomAppBarTheme(
+          shape: CircularNotchedRectangle(), color: ColorsManger.darkGrey),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: ColorsManger.blue,
+          iconSize: 28,
+          shape: StadiumBorder(
+            side: BorderSide(
+              color: ColorsManger.darkGrey,
+              width: 4,
+            ),
+          )),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: ColorsManger.darkGrey,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(15),
+            topLeft: Radius.circular(15),
+          ),
+        ),
+      ));
 }

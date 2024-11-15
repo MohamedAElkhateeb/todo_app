@@ -3,6 +3,7 @@ import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_app/config/theme/app_styles.dart';
+import 'package:todo_app/config/theme/app_theme.dart';
 import 'package:todo_app/core/utils/colors_manger.dart';
 import 'package:todo_app/core/utils/dart_ex.dart';
 import 'package:todo_app/datebase_manager/model/todo_dm.dart';
@@ -69,21 +70,23 @@ class TasksTabState extends State<TasksTab> {
             getTaskFromFireStore();
           },
           child: Card(
+            color: Theme.of(context).colorScheme.onPrimary,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
+
                 "${date.getDayName}",
                 style: isSelected
                     ? LightAppStyle.calenderSelectedDate
-                    : LightAppStyle.calenderUnSelectedDate,
+                    : DarkAppStyle.calenderUnSelectedDate,
               ),
               Text(
                 "${date.day}",
                 style: isSelected
                     ? LightAppStyle.calenderSelectedDate
-                    : LightAppStyle.calenderUnSelectedDate,
+                    : DarkAppStyle.calenderUnSelectedDate,
               ),
             ]),
           ),

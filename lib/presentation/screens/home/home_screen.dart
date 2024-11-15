@@ -3,6 +3,7 @@ import 'package:todo_app/core/utils/colors_manger.dart';
 import 'package:todo_app/presentation/screens/home/add_tas_bottom_sheet/add_task_bottom_sheet.dart';
 import 'package:todo_app/presentation/screens/home/tabs/settings_tab.dart';
 import 'package:todo_app/presentation/screens/home/tabs/tasks_tab/tasks_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: buildfab(),
       appBar: AppBar(
-        title: Text("ToDo list"),
+        title: Text(AppLocalizations.of(context)!.appTitle),
       ),
       bottomNavigationBar: buildBottomNavBar(),
       body: tabs[currentIndex],
@@ -53,10 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 currentIndex = tappedIndex;
                 setState(() {});
               },
-              items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Tasks'),
+              items: [
+                BottomNavigationBarItem(icon: const Icon(Icons.list), label:  AppLocalizations.of(context)!.tasksTab),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.settings_outlined), label: 'Settings')
+                    icon: const Icon(Icons.settings_outlined), label:  AppLocalizations.of(context)!.settingsTab)
               ]),
         ),
       );

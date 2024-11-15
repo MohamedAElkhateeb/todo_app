@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/config/theme/app_styles.dart';
 import 'package:todo_app/core/utils/dart_ex.dart';
 import 'package:todo_app/datebase_manager/model/todo_dm.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../providers/theme_provider.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   AddTaskBottomSheet({super.key});
@@ -30,6 +33,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of(context);
     return Form(
       key: formKey,
       child: Container(
@@ -37,11 +41,17 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         padding: EdgeInsets.all(12),
         child:
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Text("Add New Task",
-              style: LightAppStyle.bottomSheetTitle,
-              textAlign: TextAlign.center),
+          Center(
+            child: Text( AppLocalizations.of(context)!.addTask,
+                style: themeProvider.isLightMode()
+                    ? LightAppStyle.bottomSheetTitle
+                    : DarkAppStyle.bottomSheetTitle,),
+          ),
           SizedBox(height: 8),
           TextFormField(
+            style: themeProvider.isLightMode()
+                ? LightAppStyle.controller
+                : DarkAppStyle.controller,
             controller: titleController,
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
@@ -49,9 +59,14 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 }
               },
               decoration: InputDecoration(
-                  hintText: "enter your title", hintStyle: LightAppStyle.hint)),
+                  hintText: AppLocalizations.of(context)!.titleHint, hintStyle: themeProvider.isLightMode()
+                  ? LightAppStyle.textFieldHint
+                  : DarkAppStyle.textFieldHint,)),
           SizedBox(height: 8),
           TextFormField(
+            style: themeProvider.isLightMode()
+                ? LightAppStyle.controller
+                : DarkAppStyle.controller,
             controller: descriptionController,
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
@@ -63,9 +78,14 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               },
               decoration: InputDecoration(
                   hintText: "enter your task description",
-                  hintStyle: LightAppStyle.hint)),
+                  hintStyle: themeProvider.isLightMode()
+                      ? LightAppStyle.textFieldHint
+                      : DarkAppStyle.textFieldHint,)),
           SizedBox(height: 8),
-          Text("Select date", style: LightAppStyle.date),
+          Text(AppLocalizations.of(context)!.selectDate,
+            style: themeProvider.isLightMode()
+                ? LightAppStyle.date
+                : DarkAppStyle.date,),
           InkWell(
               onTap: () {
                 showTaskDate(context);
