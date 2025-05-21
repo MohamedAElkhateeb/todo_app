@@ -1,16 +1,25 @@
-# todo_app
+# Todo App 📋
 
-A new Flutter project.
+A simple task management app built with Flutter. It supports user authentication, adding/editing tasks, localization (Arabic & English), and Firebase integration.
 
-## Getting Started
+## 🧩 Features
 
-This project is a starting point for a Flutter application.
+- User registration and login
+- Add, edit, and delete tasks
+- Localization support (English and Arabic)
+- Firebase backend integration
+- Responsive UI with custom theming
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Requirements
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter SDK (latest stable version recommended)
+- A Firebase project configured for the app
+- Code editor (VS Code or Android Studio recommended)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙️ Getting Started
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
