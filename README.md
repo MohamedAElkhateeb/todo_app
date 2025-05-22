@@ -57,7 +57,6 @@ This app uses Firebase for storing user tasks and preferences.
 Make sure to:
 
 - Create a Firebase project  
-- Add `google-services.json` (Android) or `GoogleService-Info.plist` (iOS)  
 - Then run:
 
 ```bash
