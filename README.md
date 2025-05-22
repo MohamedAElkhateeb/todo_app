@@ -14,9 +14,6 @@ The ToDo App is a sleek and efficient mobile application that helps users manage
 - **📅 Task Scheduling**  
   Assign dates and times to tasks to stay organized and never miss a deadline.
 
-- **📂 Categorization**  
-  Organize tasks by categories or labels for better task tracking.
-
 - **🌙 Light & Dark Mode**  
   Choose between light and dark themes based on your preference.
 
@@ -28,11 +25,6 @@ The ToDo App is a sleek and efficient mobile application that helps users manage
 
 ---
 
-## 🏗 Architecture
-
-- **Clean Architecture** with modular and scalable codebase  
-
----
 
 ## 🚀 Getting Started
 
