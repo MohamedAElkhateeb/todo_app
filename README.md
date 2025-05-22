@@ -1,25 +1,83 @@
-# Todo App 📋
+# ✅ ToDo App
 
-A simple task management app built with Flutter. It supports user authentication, adding/editing tasks, localization (Arabic & English), and Firebase integration.
+**Task Manager App** built with Flutter.
 
-## 🧩 Features
+The ToDo App is a sleek and efficient mobile application that helps users manage their daily tasks with ease. Whether it’s work-related reminders, personal goals, or shopping lists — this app provides a user-friendly experience to help boost productivity.
 
-- User registration and login
-- Add, edit, and delete tasks
-- Localization support (English and Arabic)
-- Firebase backend integration
-- Responsive UI with custom theming
+---
 
-## 🚀 Requirements
+## ✨ Features
 
-- Flutter SDK (latest stable version recommended)
-- A Firebase project configured for the app
-- Code editor (VS Code or Android Studio recommended)
+- **📝 Add & Manage Tasks**  
+  Easily create new tasks, mark them as completed, edit, or delete them.
 
-## ⚙️ Getting Started
+- **📅 Task Scheduling**  
+  Assign dates and times to tasks to stay organized and never miss a deadline.
 
-1. **Clone the repository:**
+- **📂 Categorization**  
+  Organize tasks by categories or labels for better task tracking.
 
-   ```bash
-   git clone <repository-url>
-   cd <project-folder>
+- **🌙 Light & Dark Mode**  
+  Choose between light and dark themes based on your preference.
+
+- **🔥 Firebase Integration**  
+  Persistent task storage using Firebase Firestore and FirebaseAuth.
+
+- **📱 Responsive UI**  
+  Clean and adaptable design using `flutter_screenutil` for all screen sizes.
+
+---
+
+## 🏗 Architecture
+
+- **Clean Architecture** with modular and scalable codebase  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- ✅ Flutter SDK (3.0 or higher recommended)  
+- 🔥 Firebase project setup  
+- 🌐 Internet connection
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/todo_app.git
+cd todo_app
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+---
+
+## 🔥 Firebase Setup
+
+This app uses Firebase for storing user tasks and preferences.
+
+Make sure to:
+
+- Create a Firebase project  
+- Add `google-services.json` (Android) or `GoogleService-Info.plist` (iOS)  
+- Then run:
+
+```bash
+flutterfire configure
+```
+
+---
+
+## 🎥 Demo Video
+
+👉 [Watch Demo Video](https://drive.google.com/file/d/your-video-id/view?usp=sharing)
+
+---
+
+
