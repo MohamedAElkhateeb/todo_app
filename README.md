@@ -67,7 +67,7 @@ flutterfire configure
 
 ## 🎥 Demo Video
 
-👉 [Watch Demo Video]([https://drive.google.com/file/d/your-video-id/view?usp=sharing](https://drive.google.com/file/d/1qppbAP_xg1-pGcOcSkTeyw82_rs8R9bE/view?usp=drive_link))
+👉 [Watch Demo Video](https://drive.google.com/file/d/1qppbAP_xg1-pGcOcSkTeyw82_rs8R9bE/view?usp=drive_link)
 
 ---
 
